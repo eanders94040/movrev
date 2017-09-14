@@ -1,13 +1,13 @@
 <h1>Welcome#index</h1>
 
-<%= link_to 'My Blog', controller: 'articles' %>
+<%= link_to 'My Blog', controller: 'reviews' %>
 
 
-<%= form_with model: @article, local: true do |form| %>
+<%= form_with model: @review, local: true do |form| %>
 
   <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <%= form.label :email %><br>
+    <%= form.text_field :email %>
   </p>
 
   <p>
@@ -28,7 +28,7 @@
       <br>
       Release Date: <%= result['release_date'] %>
       <br>
-      <%= link_to 'Leave a Review', new_article_path %>
+      <%= link_to 'Leave a Review', new_review_path %>
     </p>
   <% end %>
 

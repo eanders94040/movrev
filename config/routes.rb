@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   #post 'welcome/create'
   post 'welcome/index', to: 'welcome#create'
 
-  resources :articles
+  resources :reviews
 
   root 'welcome#index'
 
