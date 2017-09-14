@@ -1,5 +1,4 @@
 <h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
 
 <%= link_to 'My Blog', controller: 'articles' %>
 
@@ -18,6 +17,25 @@
 <% end %>
 
 
+<% if @results %>
+  <% @results['results'].each do |result| %>
+    <p>
+      <img src='http://image.tmdb.org/t/p/w92<%= result['poster_path'] %>'>
+      <br>
+      Title: <%= result['title'] %>
+      <br>
+      Genre Ids: <%= result['genre_ids'] %>
+      <br>
+      Release Date: <%= result['release_date'] %>
+    </p>
+  <% end %>
+
+<% end %>
+
+<br>
+<br>
+<br>
 
 
 <%= @results %>
+

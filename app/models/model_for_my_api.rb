@@ -17,6 +17,7 @@ class ModelForMyApi < ActiveRecord::Base
          #@url = "https://api.themoviedb.org/3/search/movie?api_key=921b46ffb500286a79d492f9a2546c74&query=Jack+Reacher"
          @url = "https://api.themoviedb.org/3/search/movie?api_key=921b46ffb500286a79d492f9a2546c74&query=#{myParameter}"
         JSON.parse(ModelForMyApi.getData)
+        #ModelForMyApi.getData
     end
 end
 
