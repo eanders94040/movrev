@@ -3,4 +3,21 @@
 
 <%= link_to 'My Blog', controller: 'articles' %>
 
+
+<%= form_with model: @article, local: true do |form| %>
+
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
+
+
+
+
 <%= @results %>

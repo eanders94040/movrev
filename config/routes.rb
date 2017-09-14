@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   get 'welcome/index'
 
+  # added for search
+  #post 'welcome/create'
+  post 'welcome/index', to: 'welcome#create'
+
   resources :articles
 
   root 'welcome#index'
