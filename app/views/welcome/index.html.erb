@@ -1,7 +1,5 @@
 <h1>Welcome#index</h1>
 
-<%= link_to 'My Blog', controller: 'reviews' %>
-
 
 <%= form_with model: @review, local: true do |form| %>
 
@@ -17,27 +15,39 @@
 <% end %>
 
 
-<% if @results %>
-  <% @results['results'].each do |result| %>
+<% if @movies %>
+  <% @movies.each do |movie| %>
     <p>
-      <img src='http://image.tmdb.org/t/p/w92<%= result['poster_path'] %>'>
+      <%= image_full_path(movie.image) %>
       <br>
-      Title: <%= result['title'] %>
+      Title: <%= movie.title %>
       <br>
-      Genre Ids: <%= result['genre_ids'] %>
+      External Id: <%= movie.external_id %>
       <br>
-      Release Date: <%= result['release_date'] %>
+      Genre Ids: <%= movie.genre %>
       <br>
-      <%= link_to 'Leave a Review', new_review_path %>
+      Release Date: <%= movie.release_date %>
+      <br>
+      Reviews: 
+        <br>
+        <% movie.reviews.each do |review| %>
+	  Rating: <%= review.rating %>
+	  Comment: <%= review.comment %>
+	  Email: <%= review.email %>
+	  <br>
+	<% end %>
+      <%= link_to 'Leave a Review', movie_path(movie) %>
     </p>
   <% end %>
 
 <% end %>
 
-<br>
-<br>
-<br>
+
+Recent Reviews:
 
 
-<%= @results %>
+
+
+
+
 

@@ -1,0 +1,29 @@
+Reviewing Movie: <%= @movie.title %>
+
+<%= form_with model: [ @movie, @movie.reviews.build ], local: true do |form| %>
+
+  <p>
+    <%= form.label :email %><br>
+    <%= form.text_field :email %>
+  </p>
+
+  <p>
+    <%= form.label :date %><br>
+    <%= form.text_field :date %>
+  </p>
+
+  <p>
+    <%= form.label :rating %><br>
+    <%= form.text_field :rating %>
+  </p>
+
+  <p>
+    <%= form.label :comment %><br>
+    <%= form.text_area :comment %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
