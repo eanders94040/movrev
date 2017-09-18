@@ -1,15 +1,12 @@
 <h1>Listing reviews</h1>
 
-<%= link_to 'New review', new_review_path %>
- 
 <table>
   <tr>
     <th>Email</th>
     <th>Review Date</th>
     <th>Rating</th>
-    <th>Movie Id</th>
+    <th>Movie</th>
     <th>Comment</th>
-    <th colspan="2"></th>
   </tr>
  
   <% @reviews.each do |review| %>
@@ -17,12 +14,8 @@
       <td><%= review.email %></td>
       <td><%= review.review_date %></td>
       <td><%= review.rating %></td>
-      <td><%= review.movie_id %></td>
+      <td><%= review.movie_id %> <%= review.movie %></td>
       <td><%= review.comment %></td>
-      <td><%= link_to 'Show', review_path(review) %></td>
-      <td><%= link_to 'Destroy', review_path(review),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>

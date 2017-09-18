@@ -7,6 +7,9 @@ class WelcomeController < ApplicationController
         @movies.push(Movie.find(movie_id))
       end
     end
+
+    # get recent reviews
+    #@recent_reviews = get_recent_reviews()
   end
 
   def create
@@ -26,16 +29,18 @@ class WelcomeController < ApplicationController
     def get_by_external_id_or_create(json)
       movies_in_db = Movie.where("external_id = ?", json['id'])
       if movies_in_db.empty?
-        #print 'empty'
         return Movie.create(:title => json['title'], :image => json['poster_path'], :genre => json['genre_ids'], :external_id => json['id'], :release_date => json['release_date'])
       else
-        #print 'not empty'
         # should just be one, but take first result if not (todo: ensure just one by db uniqueness constraint)
         movies_in_db.each do |movie|
-	  #print movie.title
 	  return movie
         end
       end
     end
+
+    #def get_recent_reviews()
+      #recent_reviews = []
+      
+    #end
 
 end
