@@ -56,3 +56,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # rest client for 3rd party api call
 gem 'rest-client'
+
+gem 'jquery-rails'

@@ -1,24 +1,3 @@
-<h1>Welcome#index</h1>
-
-
-<%= form_with model: @review, remote: true do |form| %>
-
-  <p>
-    <%= form.label :email %><br>
-    <%= form.text_field :email %>
-  </p>
-
-  <p>
-    <%= form.submit %>
-  </p>
-
-<% end %>
-
-
-<div id="man">
-</div>
-
-
 <% if @movies %>
   <% @movies.each do |movie| %>
     <p>
@@ -32,27 +11,16 @@
       <br>
       Release Date: <%= movie.release_date %>
       <br>
-      Reviews: 
+      Reviews:
         <br>
         <% movie.reviews.each do |review| %>
-	  Rating: <%= review.rating %>
-	  Comment: <%= review.comment %>
-	  Email: <%= review.email %>
-	  <br>
-	<% end %>
+          Rating: <%= review.rating %>
+          Comment: <%= review.comment %>
+          Email: <%= review.email %>
+          <br>
+        <% end %>
       <%= link_to 'Leave a Review', movie_path(movie) %>
     </p>
   <% end %>
 
 <% end %>
-
-
-<%= link_to 'View all Reviews', reviews_path %>
-
-
-
-
-
-
-
-

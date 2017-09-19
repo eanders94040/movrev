@@ -1,28 +1,39 @@
 class WelcomeController < ApplicationController
   def index
-    if params[:ids]
-      @movies = []
-      ids = params[:ids].split(',')
-      ids.each do |movie_id|
-        @movies.push(Movie.find(movie_id))
-      end
-    end
+    #if params[:ids]
+    #  @movies = []
+    #  ids = params[:ids].split(',')
+    #  ids.each do |movie_id|
+    #    @movies.push(Movie.find(movie_id))
+    #  end
+    #end
 
     # get recent reviews
     #@recent_reviews = get_recent_reviews()
   end
 
   def create
+    print 'got here'
     api_results = ModelForMyApi.retrieve_results(params[:email])
     movie_ids = []
+    @movies = []
     if api_results
+      print 'a'
       api_results['results'].each do |api_result|
+        print 'b'
 	movie = get_by_external_id_or_create(api_result)
+	@movie = movie  # just trying to get something to show
+	@movies.push(movie)
 	movie_ids.push(movie.id)
       end
     end
 
-    redirect_to '/welcome/index?ids=' + movie_ids.join(",")
+    respond_to do |format|
+      format.js { }
+    end
+
+    # trying to get ajax to work
+    #redirect_to '/welcome/index?ids=' + movie_ids.join(",")
   end
 
   private
