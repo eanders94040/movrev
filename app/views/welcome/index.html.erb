@@ -9,7 +9,11 @@
   </p>
 
   <p>
-    <%= form.submit %>
+    <%= form.submit "Sort By Title", name: "submit", value: "Sort By Title" %>
+  </p>
+
+  <p>
+    <%= form.submit "Sort By Release Date", name: "submit", value: "Sort By Release Date" %>
   </p>
 
 <% end %>
@@ -17,34 +21,6 @@
 
 <div id="man">
 </div>
-
-
-<% if @movies %>
-  <% @movies.each do |movie| %>
-    <p>
-      <%= image_full_path(movie.image) %>
-      <br>
-      Title: <%= movie.title %>
-      <br>
-      External Id: <%= movie.external_id %>
-      <br>
-      Genre Ids: <%= movie.genre %>
-      <br>
-      Release Date: <%= movie.release_date %>
-      <br>
-      Reviews: 
-        <br>
-        <% movie.reviews.each do |review| %>
-	  Rating: <%= review.rating %>
-	  Comment: <%= review.comment %>
-	  Email: <%= review.email %>
-	  <br>
-	<% end %>
-      <%= link_to 'Leave a Review', movie_path(movie) %>
-    </p>
-  <% end %>
-
-<% end %>
 
 
 <%= link_to 'View all Reviews', reviews_path %>
