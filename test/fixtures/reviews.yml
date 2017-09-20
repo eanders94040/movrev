@@ -1,9 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  text: MyText
+bad_email:
+  email: MyString
+  rating: 5
+  date: 2017-09-14 12:47:35
+  movie: jack1
+  comment: good
 
-two:
-  title: MyString
-  text: MyText
+good_email:
+  email: test@test.com
+  rating: 1
+  date: 2017-09-14 12:47:35
+  movie: jack2

@@ -1,15 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  releate_date: 2017-09-14 12:47:35
-  genre: 1
+jack1:
+  title: Jack Reacher
+  release_date: 2010-09-14 12:47:35
+  genre: 18
   image: MyString
-  review: one
 
-two:
-  title: MyString
-  releate_date: 2017-09-14 12:47:35
-  genre: 1
+jack2:
+  title: Jack Reacher 2
+  release_date: 2014-09-14 12:47:35
+  genre: 35
   image: MyString
-  review: two
