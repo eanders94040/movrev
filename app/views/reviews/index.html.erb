@@ -3,7 +3,7 @@
 <table>
   <tr>
     <th>Email</th>
-    <th>Review Date</th>
+    <th>Date</th>
     <th>Rating</th>
     <th>Movie</th>
     <th>Comment</th>
@@ -12,9 +12,9 @@
   <% @reviews.each do |review| %>
     <tr>
       <td><%= review.email %></td>
-      <td><%= review.review_date %></td>
+      <td><%= review.date %></td>
       <td><%= review.rating %></td>
-      <td><%= review.movie_id %> <%= review.movie %></td>
+      <td><%= review.movie.title %></td>
       <td><%= review.comment %></td>
     </tr>
   <% end %>

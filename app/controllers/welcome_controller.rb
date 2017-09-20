@@ -36,7 +36,7 @@ class WelcomeController < ApplicationController
       if movies_in_db.empty?
         return Movie.create(:title => json['title'], :image => json['poster_path'], :genre => json['genre_ids'][0], :external_id => json['id'], :release_date => json['release_date'])
       else
-        # should just be one, but take first result if not (todo: ensure just one by db uniqueness constraint)
+        # should just be one, due to model validation, but take first result if not
         movies_in_db.each do |movie|
 	  return movie
         end

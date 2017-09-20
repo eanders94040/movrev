@@ -12,7 +12,6 @@ class ReviewsController < ApplicationController
   #end
 
   def create
-    #print 'wed got here'
     movie = Movie.find(params[:movie_id])
     review = movie.reviews.create(review_params)
     #redirect_to movie_path(@movie)
@@ -28,23 +27,6 @@ class ReviewsController < ApplicationController
       redirect_to movie_path(movie)
     end
   end
-
-  #def update
-  #  @review = Review.find(params[:id])
- 
-  #  if @review.update(review_params)
-  #    redirect_to @review
-  #  else
-  #    render 'edit'
-  #  end
-  #end
-
-  #def destroy
-  #  @review = Review.find(params[:id])
-  #  @review.destroy
- 
-  #  redirect_to reviews_path
-  #end
 
   private
     def review_params
