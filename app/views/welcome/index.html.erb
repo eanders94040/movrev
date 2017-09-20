@@ -1,11 +1,11 @@
-<h1>Welcome#index</h1>
+<h1>Review your favorite movies</h1>
 
 
-<%= form_with model: @review, remote: true do |form| %>
+<%= form_with model: @movie, remote: true do |form| %>
 
   <p>
-    <%= form.label :email %><br>
-    <%= form.text_field :email %>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
   </p>
 
   <p>

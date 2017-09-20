@@ -1,13 +1,12 @@
 class WelcomeController < ApplicationController
-  #require 'rest-client'
-
   def index
     # get recent reviews
     #@recent_reviews = get_recent_reviews()
   end
 
   def create
-    api_results = ModelForMyApi.retrieve_results(params[:email])
+    #api_results = ModelForMyApi.retrieve_results(params[:email])
+    api_results = ModelForMyApi.retrieve_results(params[:title])
 
     @movies = []
     if api_results
@@ -24,8 +23,6 @@ class WelcomeController < ApplicationController
       @movies = @movies.sort do |m1,m2| m1.release_date <=> m2.release_date end
     elsif params[:submit] == "Sort By Genre"
       @movies = @movies.sort do |m1,m2| m1.genre <=> m2.genre end
-    #else
-      #print "dont sort"
     end
 
     respond_to do |format|
