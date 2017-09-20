@@ -1,5 +1,11 @@
 Reviewing Movie: <%= @movie.title %>
 
+
+<% if params[:notice].present? %>
+  <p class='flash-notice'>Thanks for creating a review!</p>
+<% end %>
+
+
 <%= form_with model: [ @movie, @movie.reviews.build ], local: true do |form| %>
 
   <p>
