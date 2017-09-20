@@ -1,26 +1,28 @@
 Reviewing Movie: <%= @movie.title %>
 
 
-<% if params[:notice].present? %>
-  <p class='flash-notice'>Thanks for creating a review!</p>
+<% flash.each do |key, value| %>
+  <p>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  </p>
 <% end %>
 
 
 <%= form_with model: [ @movie, @movie.reviews.build ], local: true do |form| %>
 
   <p>
-    <%= form.label :email %><br>
+    <%= form.label :email %>*<br>
     <%= form.text_field :email %>
   </p>
 
   <p>
-    <%= form.label :date %><br>
-    <%= form.text_field :date %>
+    <%= form.label :date %>*<br>
+    <%= form.date_select :date %>
   </p>
 
   <p>
-    <%= form.label :rating %><br>
-    <%= form.text_field :rating %>
+    <%= form.label :rating %>*<br>
+    <%= form.select :rating, ['1', '2', '3', '4', '5'] %>
   </p>
 
   <p>

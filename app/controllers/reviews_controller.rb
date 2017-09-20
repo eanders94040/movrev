@@ -3,20 +3,30 @@ class ReviewsController < ApplicationController
     @reviews = Review.all
   end
 
-  def show
-    @review = Review.find(params[:id])
-  end
+  #def show
+  #  @review = Review.find(params[:id])
+  #end
 
-  def new
-    @review = Review.new
-  end
+  #def new
+  #  @review = Review.new
+  #end
 
   def create
     #print 'wed got here'
-    @movie = Movie.find(params[:movie_id])
-    @review = @movie.reviews.create(review_params)
+    movie = Movie.find(params[:movie_id])
+    review = movie.reviews.create(review_params)
     #redirect_to movie_path(@movie)
-    redirect_to movie_path(@movie, notice: 'success')
+
+    if review.save
+      flash[:success] = "Thanks for creating a review!"
+      #redirect_to movie_path(movie, notice: 'success')
+      redirect_to movie_path(movie)
+    else
+      #print review.errors.messages
+      flash[:error] = review.errors.messages
+      #redirect_to movie_path(movie, notice: 'error')
+      redirect_to movie_path(movie)
+    end
   end
 
   #def update
@@ -38,7 +48,7 @@ class ReviewsController < ApplicationController
 
   private
     def review_params
-      params.require(:review).permit(:email, :comment, :review_date, :rating)
+      params.require(:review).permit(:email, :comment, :date, :rating)
     end
 
 end

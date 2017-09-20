@@ -3,7 +3,7 @@ class CreateReviews < ActiveRecord::Migration[5.1]
     create_table :reviews do |t|
       t.string :email
       t.integer :rating
-      t.timestamp :review_date
+      t.timestamp :date
       t.text :comment
       t.references :movie, foreign_key: true
 
