@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    print 'wed got here'
+    #print 'wed got here'
     @movie = Movie.find(params[:movie_id])
     @review = @movie.reviews.create(review_params)
     #redirect_to movie_path(@movie)
