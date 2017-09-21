@@ -6,20 +6,29 @@
     </div>
 
     <div id="movie_rest">
-      Title: <%= movie.title %>
-      <br>
-      Genre: <%= movie.genre %>
+      <%= movie.title %>
       <br>
       Release Date: <%= movie.release_date %>
       <br>
-      Reviews:
+      Genre: <%= movie.genre %>
+      <br>
+
+      <% movie.reviews.each do |review| %>
+
+        Rating:
+	  <% empty_stars = 5 - review.rating %>
+	  <% review.rating.to_i.times do  %>
+	    &starf;
+	  <% end %>
+	  <% empty_stars.times do  %>
+	    &star;
+	  <% end %>
+
+        "<%= review.comment %>" -
+        <%= review.email %>
         <br>
-        <% movie.reviews.each do |review| %>
-          Rating: <%= review.rating %>
-          Comment: <%= review.comment %>
-          Email: <%= review.email %>
-          <br>
-        <% end %>
+      <% end %>
+
       <%= link_to 'Leave a Review', movie_path(movie) %>
     </div>
 
