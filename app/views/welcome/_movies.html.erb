@@ -1,8 +1,11 @@
 <% if @movies %>
   <% @movies.each do |movie| %>
-    <p>
+
+    <div id="movie_image">
       <%= image_full_path(movie.image) %>
-      <br>
+    </div>
+
+    <div id="movie_rest">
       Title: <%= movie.title %>
       <br>
       Genre: <%= movie.genre %>
@@ -18,6 +21,9 @@
           <br>
         <% end %>
       <%= link_to 'Leave a Review', movie_path(movie) %>
-    </p>
+    </div>
+
+    <div class="clear"></div>
+
   <% end %>
 <% end %>

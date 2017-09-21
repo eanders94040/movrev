@@ -3,13 +3,22 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #left {
-  width: 400px;
+  width: 500px;
   float: left;
 }
 #right {
-  margin-left: 400px;
+  margin-left: 500px;
   /* Change this to whatever the width of your left column is*/
 }
 .clear {
   clear: both;
+}
+
+#movie_image {
+  width: 100px;
+  float: left;
+}
+#movie_rest {
+  margin-left: 100px;
+  /* Change this to whatever the width of your left column is*/
 }
