@@ -9,7 +9,7 @@
       <div id="movie_rest">
 	<%= movie.title %>
 	<br>
-	Release Date: <%= movie.release_date %>
+	Release Date: <%= movie.release_date.strftime("%b %d, %Y") %>
 	<br>
 	Genre: <%= movie.genre %>
 	<br>
