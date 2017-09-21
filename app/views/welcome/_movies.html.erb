@@ -1,35 +1,28 @@
 <% if @movies %>
   <% @movies.each do |movie| %>
 
-    <div id="movie_image">
-      <%= image_full_path(movie.image) %>
-    </div>
+    <div id="movie">
+      <div id="movie_image">
+	<%= image_full_path(movie.image) %>
+      </div>
 
-    <div id="movie_rest">
-      <%= movie.title %>
-      <br>
-      Release Date: <%= movie.release_date %>
-      <br>
-      Genre: <%= movie.genre %>
-      <br>
+      <div id="movie_rest">
+	<%= movie.title %>
+	<br>
+	Release Date: <%= movie.release_date %>
+	<br>
+	Genre: <%= movie.genre %>
+	<br>
 
-      <% movie.reviews.each do |review| %>
+	<% movie.reviews.each do |review| %>
+	  <%= render partial: "stars", locals: {rating: review.rating} %>
+          "<%= review.comment %>" -
+          <%= review.email %>
+          <br>
+        <% end %>
 
-        Rating:
-	  <% empty_stars = 5 - review.rating %>
-	  <% review.rating.to_i.times do  %>
-	    &starf;
-	  <% end %>
-	  <% empty_stars.times do  %>
-	    &star;
-	  <% end %>
-
-        "<%= review.comment %>" -
-        <%= review.email %>
-        <br>
-      <% end %>
-
-      <%= link_to 'Leave a Review', movie_path(movie) %>
+        <%= link_to 'Leave a Review', movie_path(movie) %>
+      </div>
     </div>
 
     <div class="clear"></div>

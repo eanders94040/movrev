@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
   def index
     # get recent reviews
-    #@recent_reviews = get_recent_reviews()
+    @recent_reviews = get_recent_reviews()
   end
 
   def create
@@ -46,9 +46,9 @@ class WelcomeController < ApplicationController
       end
     end
 
-    #def get_recent_reviews()
+    def get_recent_reviews()
       #recent_reviews = []
-      
-    #end
+      recent_reviews = Review.all()
+    end
 
 end
