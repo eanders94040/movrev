@@ -1,6 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    # get recent reviews
     @recent_reviews = get_recent_reviews()
   end
 
@@ -47,8 +46,8 @@ class WelcomeController < ApplicationController
     end
 
     def get_recent_reviews()
-      #recent_reviews = []
-      recent_reviews = Review.all()
+      #recent_reviews = Review.all()
+      recent_reviews = Review.order(created_at: :desc).limit(5)
     end
 
 end

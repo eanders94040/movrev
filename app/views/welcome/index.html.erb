@@ -19,10 +19,12 @@
 
 
 <div id="container">
+
   <div id="left">
     <div id="movie_results">
     </div>
   </div>
+
   <div id="right">
     <h2>Recent Reviews</h2>
     <% @recent_reviews.each do |recent_review| %>
@@ -35,5 +37,7 @@
     <br>
     <%= link_to 'View all Reviews', reviews_path %>
   </div>
+
   <div class="clear"></div>
+
 </div>
