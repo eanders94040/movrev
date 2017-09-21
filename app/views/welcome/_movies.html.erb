@@ -4,6 +4,10 @@
     <div id="movie">
       <div id="movie_image">
 	<%= image_full_path(movie.image) %>
+	<br>
+	<%= render partial: "stars", locals: {rating: movie.average_rating} %>
+	<br>
+	<br>
       </div>
 
       <div id="movie_rest">

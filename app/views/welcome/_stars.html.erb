@@ -1,9 +1,13 @@
 
-<% empty_stars = 5 - rating %>
-<% rating.to_i.times do  %>
-  &starf;
-<% end %>
+<% if rating %>
 
-<% empty_stars.times do  %>
-  &star;
+  <% empty_stars = 5 - rating %>
+  <% rating.to_i.times do  %>
+    &starf;
+  <% end %>
+
+  <% empty_stars.times do  %>
+    &star;
+  <% end %>
+
 <% end %>
