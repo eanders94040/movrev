@@ -16,11 +16,11 @@ class WelcomeController < ApplicationController
     end
 
     # sort here
-    if params[:submit] == "Sort By Title"
+    if params[:sort_by] == "Title"
       @movies = @movies.sort do |m1,m2| m1.title <=> m2.title end
-    elsif params[:submit] == "Sort By Release Date"
+    elsif params[:sort_by] == "Release Date"
       @movies = @movies.sort do |m1,m2| m1.release_date <=> m2.release_date end
-    elsif params[:submit] == "Sort By Genre"
+    elsif params[:sort_by] == "Genre"
       @movies = @movies.sort do |m1,m2| 
         if m1.genre.nil? then 1
 	elsif m2.genre.nil? then -1

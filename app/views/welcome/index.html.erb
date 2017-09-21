@@ -1,31 +1,30 @@
-<h1>Review your favorite movies</h1>
+<h1>Review movies</h1>
 
 
 <%= form_with model: @movie, remote: true do |form| %>
 
   <p>
-    <%= form.label :title %><br>
+    <%= form.label :title, 'Search by Title' %><br>
     <%= form.text_field :title %>
   </p>
 
   <p>
-    <%= form.submit "Sort By Title", name: "submit", value: "Sort By Title" %>
-  </p>
-
-  <p>
-    <%= form.submit "Sort By Release Date", name: "submit", value: "Sort By Release Date" %>
-  </p>
-
-  <p>
-    <%= form.submit "Sort By Genre", name: "submit", value: "Sort By Genre" %>
+    Sort By:
+    <%= form.submit "Title", name: "sort_by", value: "Title" %>
+    <%= form.submit "Release Date", name: "sort_by", value: "Release Date" %>
+    <%= form.submit "Genre", name: "sort_by", value: "Genre" %>
   </p>
 
 <% end %>
 
 
-<div id="movie_results">
+<div id="container">
+  <div id="left">
+    <div id="movie_results">
+    </div>
+  </div>
+  <div id="right">
+    <%= link_to 'View all Reviews', reviews_path %>
+  </div>
+  <div class="clear"></div>
 </div>
-
-
-<%= link_to 'View all Reviews', reviews_path %>
-
