@@ -28,11 +28,16 @@
   <div id="right">
     <h2>Recent Reviews</h2>
     <% @recent_reviews.each do |recent_review| %>
-      "<%= recent_review.comment %>"
-      <%= render partial: "stars", locals: {rating: recent_review.rating} %>
-      <br>
-      <%= recent_review.movie.title %>
-      <br>
+      <div id="recent_left">
+	"<%= recent_review.comment %>"
+	<br>
+	<div id="recent_movie_color">
+	  <%= recent_review.movie.title %>
+	</div>
+      </div>
+      <div id="recent_right">
+	<%= render partial: "stars", locals: {rating: recent_review.rating} %>
+      </div>
     <% end %>
     <br>
     <%= link_to 'View all Reviews', reviews_path %>
