@@ -5,7 +5,6 @@ class WelcomeController < ApplicationController
   end
 
   def create
-    #api_results = ModelForMyApi.retrieve_results(params[:email])
     api_results = ModelForMyApi.retrieve_results(params[:title])
 
     @movies = []
@@ -22,7 +21,11 @@ class WelcomeController < ApplicationController
     elsif params[:submit] == "Sort By Release Date"
       @movies = @movies.sort do |m1,m2| m1.release_date <=> m2.release_date end
     elsif params[:submit] == "Sort By Genre"
-      @movies = @movies.sort do |m1,m2| m1.genre <=> m2.genre end
+      @movies = @movies.sort do |m1,m2| 
+        if m1.genre.nil? then 1
+	elsif m2.genre.nil? then -1
+	else m1.genre <=> m2.genre end
+      end
     end
 
     respond_to do |format|
