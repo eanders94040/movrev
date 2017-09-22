@@ -7,7 +7,7 @@
 	<%= render partial: "stars", locals: {rating: review.rating} %>
       </td>
       <td>
-	"<%= review.comment %>" - <%= review.email %>
+	<%= render partial: "comment_and_email", locals: {review: review} %>
       </td>
       <td>
 	<span id="movie_title">

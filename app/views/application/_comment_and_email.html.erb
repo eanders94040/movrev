@@ -1,0 +1,6 @@
+
+<% if review.comment.to_s.empty? %>
+  <%= review.email %>
+<% else %>
+  "<%= review.comment %>" - <%= review.email %>
+<% end %>
