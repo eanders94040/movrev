@@ -15,9 +15,24 @@
 <span id="genre_label">Genre:</span>
 <%= @movie.genre %>
 
-<% flash.each do |key, value| %>
+
+<% if flash[:success] %>
   <p>
-    <div class="alert alert-<%= key %>"><%= value %></div>
+    <div class="alert-success">
+      Thanks for creating a review!
+      Please create another one, or
+      <%= link_to 'Go Back', welcome_index_path %>
+    </div>
+  </p>
+<% end %>
+
+<% if flash[:error] %>
+  <p>
+    <div class="alert-error">
+      Please correct the following 
+      <%= pluralize(flash[:error].count, "error") %>:
+      <%= flash[:error].join(", ").html_safe %>
+    </div>
   </p>
 <% end %>
 
@@ -36,7 +51,7 @@
 
   <p>
     <%= form.label :rating %>*<br>
-    <%= form.select :rating, ['1', '2', '3', '4', '5'] %>
+    <%= form.select :rating, ['', '1', '2', '3', '4', '5'] %>
   </p>
 
   <p>

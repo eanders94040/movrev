@@ -3,23 +3,16 @@ class ReviewsController < ApplicationController
     @reviews = Review.all
   end
 
-  #def show
-  #  @review = Review.find(params[:id])
-  #end
-
-  #def new
-  #  @review = Review.new
-  #end
-
   def create
     movie = Movie.find(params[:movie_id])
     review = movie.reviews.create(review_params)
 
     if review.save
-      flash[:success] = "Thanks for creating a review!"
+      flash[:success] = true
       redirect_to movie_path(movie)
     else
-      flash[:error] = review.errors.messages
+      flash[:error] = review.errors.full_messages
+      # todo: don't redirect on error
       redirect_to movie_path(movie)
     end
   end
