@@ -1,21 +1,28 @@
-<h1>Listing reviews</h1>
+<h1>All Reviews</h1>
 
-<table>
-  <tr>
-    <th>Email</th>
-    <th>Date</th>
-    <th>Rating</th>
-    <th>Movie</th>
-    <th>Comment</th>
-  </tr>
- 
+<table cellpadding="5" cellspacing="5">
   <% @reviews.each do |review| %>
     <tr>
-      <td><%= review.email %></td>
-      <td><%= review.date %></td>
-      <td><%= review.rating %></td>
-      <td><%= review.movie.title %></td>
-      <td><%= review.comment %></td>
+      <td>
+	<%= render partial: "stars", locals: {rating: review.rating} %>
+      </td>
+      <td>
+	"<%= review.comment %>" - <%= review.email %>
+      </td>
+      <td>
+	<span id="movie_title">
+	  <%= review.movie.title %>
+	</span>
+      </td>
+      <td>
+	<span id="date">
+	  <%= review.date.strftime("%b %d, %Y") %>
+	</span>
+      </td>
     </tr>
   <% end %>
 </table>
+
+<p>
+  <%= link_to 'Go Back', welcome_index_path %>
+</p>
