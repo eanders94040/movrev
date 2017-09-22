@@ -1,5 +1,19 @@
-Reviewing Movie: <%= @movie.title %>
+<h1>Reviewing Movie</h1>
 
+<%= image_full_path_big(@movie.image) %>
+
+<br>
+<br>
+
+<div id="title">
+  <%= @movie.title %>
+</div>
+
+<span id="release_date_label">Release Date:</span>
+<%= @movie.release_date.strftime("%b %d, %Y") %>
+<br>
+<span id="genre_label">Genre:</span>
+<%= @movie.genre %>
 
 <% flash.each do |key, value| %>
   <p>
