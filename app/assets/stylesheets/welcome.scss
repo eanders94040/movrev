@@ -10,9 +10,6 @@
   margin-left: 500px;
   /* Change this to whatever the width of your left column is*/
 }
-.clear {
-  clear: both;
-}
 
 #movie_image {
   width: 100px;
@@ -27,17 +24,23 @@
   /*height: 138px;*/
 }
 
+#recent {
+  overflow: hidden;
+}
 #recent_left {
   width: 200px;
   float: left;
+  margin-bottom: 20px;
 }
 #recent_right {
   margin-left: 200px;
   /* Change this to whatever the width of your left column is*/
-  margin-bottom: 30px;
 }
 
 #recent_movie_color {
   color: grey;
 }
 
+.clear {
+  clear: both;
+}
