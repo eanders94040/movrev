@@ -13,7 +13,10 @@
       <div id="movie_rest">
 	<%= movie.title %>
 	<br>
-	Release Date: <%= movie.release_date.strftime("%b %d, %Y") %>
+	Release Date:
+	<% if movie.release_date %>
+	  <%= movie.release_date.strftime("%b %d, %Y") %>
+	<% end %>
 	<br>
 	Genre: <%= render partial: "genre", locals: {movie: movie} %>
 	<br>
