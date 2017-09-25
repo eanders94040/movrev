@@ -52,14 +52,7 @@
 
   <p>
     <%= form.label :rating %>*<br>
-    <%= form.hidden_field :rating, id: 'rating' %>
-    <span id="stars">
-      <span id="star1">&star;</span>
-      <span id="star2">&star;</span>
-      <span id="star3">&star;</span>
-      <span id="star4">&star;</span>
-      <span id="star5">&star;</span>
-    </div>
+    <%= form.select :rating, ['', '1', '2', '3', '4', '5'] %>
   </p>
 
   <p>
