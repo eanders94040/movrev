@@ -13,7 +13,8 @@
 <%= @movie.release_date.strftime("%b %d, %Y") %>
 <br>
 <span id="genre_label">Genre:</span>
-<%= @movie.genre %>
+
+<%= render partial: "genre", locals: {movie: @movie} %>
 
 
 <% if flash[:success] %>

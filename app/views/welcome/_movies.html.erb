@@ -15,7 +15,7 @@
 	<br>
 	Release Date: <%= movie.release_date.strftime("%b %d, %Y") %>
 	<br>
-	Genre: <%= movie.genre %>
+	Genre: <%= render partial: "genre", locals: {movie: movie} %>
 	<br>
 
 	<% movie.reviews.each do |review| %>
